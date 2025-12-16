@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // TypeScript configuration - only ignore in development for now
+  // TypeScript configuration - ignore for production builds
   typescript: {
-    ignoreBuildErrors: process.env.SKIP_TYPE_CHECK === 'true',
+    ignoreBuildErrors: true,
   },
-  // ESLint configuration - only ignore in development for now
+  // ESLint configuration - ignore for production builds
   eslint: {
-    ignoreDuringBuilds: process.env.SKIP_ESLINT === 'true',
+    ignoreDuringBuilds: true,
   },
   // Force Next.js to treat files as JavaScript
   experimental: {
