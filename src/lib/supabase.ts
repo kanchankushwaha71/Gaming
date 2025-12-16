@@ -1,15 +1,18 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 // Create a Supabase client with the public anon key (limited permissions)
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Only create the client if we have the URL (prevents build-time errors)
+export const supabase: SupabaseClient = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : (null as unknown as SupabaseClient);
 
 // Create a Supabase admin client with service role key (full permissions)
 // IMPORTANT: Only use this on the server, never expose this client in browser code
-export const supabaseAdmin = supabaseServiceKey
+export const supabaseAdmin = supabaseUrl && supabaseServiceKey
   ? createClient(supabaseUrl, supabaseServiceKey)
   : null;
 

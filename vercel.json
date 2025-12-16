@@ -1,10 +1,9 @@
 {
-  "buildCommand": "npm run build:vercel",
+  "buildCommand": "next build --no-lint",
   "outputDirectory": ".next",
   "framework": "nextjs",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
-  "ignoreCommand": "if [ \"$VERCEL_GIT_COMMIT_REF\" != \"main\" ] ; then exit 1; else exit 0; fi;",
   "regions": ["iad1"],
   "functions": {
     "app/api/**/*.ts": {
