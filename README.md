@@ -154,8 +154,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Contact
 
 For questions or support, please contact:
-- Email: shubhamkush012@gmail.com
-- Phone: 8824013820
+- Email: kanchankushwaha010@gmail.com
+- Phone: 9369042250
 
 ## Acknowledgments
 
